@@ -1,28 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <app-header v-if="header_show" :username="username"></app-header>
+    <router-view v-on:header="header" v-on:footer="footer"></router-view>
+    <app-footer v-if="footer_show"></app-footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from "./components/Header";
+  import Footer from "./components/Footer";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    data(){
+      return {
+        header_show: true,
+        footer_show: true,
+        username: '',
+      }
+    },
+    components: {
+      "app-header": Header,
+      "app-footer": Footer,
+    },
+    methods:{
+      header: function (bool) {
+        this.header_show = bool;
+      },
+      footer: function (bool) {
+        this.footer_show = bool;
+      }
+    },
+    watch: {
+      $route(to) {
+        this.username = to.query.username || '';
+      }
+    },
+    created() {
+      this.username = this.$route.query.username || '';
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0px;
+  }
 </style>

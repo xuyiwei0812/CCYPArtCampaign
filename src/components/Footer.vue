@@ -17,7 +17,7 @@ The CSS styles ensure the footer is centered, padded, and has specific dimension
     name: "Footer",
     data() {
       return {
-        msg: "2024 DPIRD AgriVision",  // The footer message to display
+        msg: "2025",  // The footer message to display
       };
     },
   };
