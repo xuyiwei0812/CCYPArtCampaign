@@ -22,21 +22,33 @@
         },
         async created() {
             try {
-                const response = await fetch(`${import.meta.env.BASE_URL}data/data.json`);
+                const baseURL = window.location.origin.includes("github.io")
+                    ? "https://xuyiwei0812.github.io/CCYPArtCampaign"
+                    : window.location.origin;
+
+                const jsonPath = `${baseURL}/data/data.json`;
+                console.log("Fetching data from:", jsonPath);
+
+                const response = await fetch(jsonPath);
                 if (!response.ok) throw new Error("Failed to load JSON");
+
                 this.artworks = await response.json();
+                console.log("Artworks loaded:", this.artworks);
             } catch (error) {
                 console.error("Error loading artworks:", error);
             }
         },
         methods: {
             getImageUrl(imagePath) {
-                if (!imagePath) return ""; // 防止 `undefined`
-                return imagePath.startsWith("/") ? imagePath : `/images/${imagePath}`;
+                const baseURL = window.location.origin.includes("github.io")
+                    ? "https://xuyiwei0812.github.io/CCYPArtCampaign"
+                    : "";
+                return `${baseURL}${imagePath}`;
             }
         }
     };
 </script>
+
 
 <style scoped>
     .artwork-container {
