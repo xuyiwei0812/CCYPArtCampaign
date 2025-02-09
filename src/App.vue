@@ -30,14 +30,6 @@
       footer: function (bool) {
         this.footer_show = bool;
       }
-    },
-    watch: {
-      $route(to) {
-        this.username = to.query.username || '';
-      }
-    },
-    created() {
-      this.username = this.$route.query.username || '';
     }
   }
 </script>

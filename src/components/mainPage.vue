@@ -1,32 +1,24 @@
-<!--
-This is the main page of the DPIRD AgriVision application.
-It provides an overview of the project's primary objectives, focusing on the use of multispectral imaging and deep learning to differentiate between crop types and weeds.
-The page displays a header with an image and includes a detailed description of the project's goals, emphasizing its potential for precision agriculture and farm management support.
--->
-
 <template>
-  <div class="main-page">
-    <!-- Section displaying an image related to the project -->
-    <div class="field-section">
-      <img src="@/assets/image1.png" alt="image" class="field-image">
+  <div class="main-content">
+    <div class="hero">
+      <img src="@/assets/banner.webp" alt="Art Campaign Banner" class="hero-image">
     </div>
 
-    <!-- Section containing the project's detailed description and objectives -->
-    <div class="intro-text">
-      <p>
-        The primary objective of this project is to conceive, develop, and implement the application system
-        named DPIRD AgriVision, a robust and integrated system that harnesses the power of advanced
-        multispectral imaging combined with sophisticated deep learning techniques. This system will be
-        tailored to accurately differentiate between various crop types and weed species, enabling precise
-        monitoring and assessment of the extent and severity of crop damage. By fusing these insights
-        with GIS data, DPIRD AgriVision will not only visualize the impacts on a macro scale but also
-        generate detailed analytical reports and actionable recommendations for effective farm
-        management. The ultimate aim is to support farmers in the Kondinin region—and potentially
-        beyond—in implementing efficacious management strategies to minimize economic losses.
-        Through its deployment on cloud infrastructure, DPIRD AgriVision promises accessibility and
-        utility to users across diverse locations, offering a scalable solution in the domain of precision
-        agriculture.
-      </p>
+    <div class="campaign-info">
+      <div class="partner-header">
+        <span class="our-partner">Our Partner:</span>
+        <img src="@/assets/ccyp.png" alt="Partners" class="partners-logo">
+      </div>
+      <div class="text">
+        <h2>About the Art Campaign</h2>
+        <p>
+          The Art Campaign: Poverty is an initiative empowering children and young people
+          to highlight differences between poverty and neglect through storytelling art.
+          It aims to reduce poverty stigma, raise awareness, and engage young people
+          in social justice discussions.
+
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -43,36 +35,84 @@ The page displays a header with an image and includes a detailed description of 
 </script>
 
 <style scoped>
-  /* Main page styling */
-  .main-page {
-    text-align: center;
-    padding: 20px;
-  }
-
-  /* Styling for the image section */
-  .field-section {
+  /* 主内容区：左右两栏 */
+  .main-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
-  /* Styling for the field image */
-  .field-image {
-    width: 95%; /* Adjust the width as needed */
+  /* 左侧：大图片 */
+  .hero {
+    flex: 1;
+  }
+
+  .hero-image {
+    width: 100%;
     height: auto;
-    margin-right: 20px;
+    border-radius: 8px;
   }
 
-  /* Styling for the text introducing the project */
-  .intro-text {
-    margin: 30px;
-    font-size: 1.2em;
-    line-height: 1.6em;
-    color: #333;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+  /* 右侧：CCYP Logo + 介绍 */
+  .campaign-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    padding-left: 40px;
+  }
+
+  .our-partner {
+    color: #5C3B1E;
+    font-size: 24px;
+  }
+
+  /* 让 Our Partner + CCYP Logo 在一行 */
+  .partner-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 调整文字和 Logo 之间的间距 */
+    margin-bottom: 5px; /* 确保与下面的内容有间距 */
+    margin-top: -180px; /* 主动上移整个部分 */
+  }
+
+  /* CCYP Logo 调整 */
+  .partners-logo {
+    width: 350px; /* 控制 Logo 大小 */
+    height: auto;
+  }
+
+  /* 介绍文本 */
+  .text h2 {
+    font-size: 28px;
+    color: #5C3B1E;
+  }
+
+  .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  /* 响应式适配（小屏幕改成上下布局） */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero,
+    .campaign-info {
+      width: 100%;
+      text-align: center;
+    }
+
+    .campaign-info {
+      padding-left: 0;
+      margin-top: 20px;
+    }
   }
 </style>

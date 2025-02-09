@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Hope in Colors",
+    "artist": "Alice Johnson",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://instagram.com/alicejohnsonart",
+    "group": "adult"
+  },
+  {
+    "title": "Shadows of the Past",
+    "artist": "Michael Lee",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://twitter.com/michaellee",
+    "group": "adult"
+  },
+  {
+    "title": "Dreams of Tomorrow",
+    "artist": "Sophie Chen",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://facebook.com/sophiechen",
+    "group": "teenage"
+  },
+  {
+    "title": "A World of Imagination",
+    "artist": "Leo Martin",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://instagram.com/leomartinart",
+    "group": "children"
+  },
+  {
+    "title": "Hope in Colors",
+    "artist": "Alice Johnson",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://instagram.com/alicejohnsonart",
+    "group": "adult"
+  },
+  {
+    "title": "Shadows of the Past",
+    "artist": "Michael Lee",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://twitter.com/michaellee",
+    "group": "adult"
+  },
+  {
+    "title": "Dreams of Tomorrow",
+    "artist": "Sophie Chen",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://facebook.com/sophiechen",
+    "group": "teenage"
+  },
+  {
+    "title": "A World of Imagination",
+    "artist": "Leo Martin",
+    "image": "/images/image2.jpg",
+    "social_media_link": "https://instagram.com/leomartinart",
+    "group": "children"
+  }
+]

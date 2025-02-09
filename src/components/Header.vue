@@ -2,15 +2,17 @@
   <div>
     <!-- 顶部栏 -->
     <div id="top-bar">
-      <div class="left">
+      <div class="top-bar-left">
         <img src="@/assets/icon6.png" alt="Campaign Icon" class="campaign-icon" />
         <span class="campaign-title">Art Campaign: Poverty</span>
       </div>
-      <div class="social-icons">
-        <span>Follow Us:</span>
-        <i class="fab fa-instagram social-icon" @click="openLink('https://instagram.com')"></i>
-        <i class="fab fa-twitter social-icon" @click="openLink('https://twitter.com')"></i>
-        <i class="fab fa-facebook social-icon" @click="openLink('https://facebook.com')"></i>
+      <div class="top-bar-right">
+        <span class="follow-us">Follow Us:</span>
+        <div class="social-icons">
+          <i class="fab fa-instagram social-icon" @click="openLink('https://instagram.com')"></i>
+          <i class="fab fa-twitter social-icon" @click="openLink('https://twitter.com')"></i>
+          <i class="fab fa-facebook social-icon" @click="openLink('https://facebook.com')"></i>
+        </div>
       </div>
     </div>
 
@@ -19,15 +21,7 @@
       <nav class="middle">
         <router-link to="/" class="nav-link">Home</router-link>
 
-        <!-- Artworks Dropdown -->
-        <div class="dropdown" @mouseenter="showDropdown = 'artworks'" @mouseleave="showDropdown = ''">
-          <span class="nav-link dropdown-toggle" :class="{ 'active': showDropdown === 'artworks' }">Artworks</span>
-          <div class="dropdown-menu" v-show="showDropdown === 'artworks'">
-            <router-link to="/artwork/adult" class="dropdown-item">Adult Group</router-link>
-            <router-link to="/artwork/teenage" class="dropdown-item">Teenage Group</router-link>
-            <router-link to="/artwork/children" class="dropdown-item">Children Group</router-link>
-          </div>
-        </div>
+        <router-link to="/artwork" class="nav-link">Artworks</router-link>
 
         <!-- About Us Dropdown -->
         <div class="dropdown" @mouseenter="showDropdown = 'about'" @mouseleave="showDropdown = ''">
@@ -42,30 +36,6 @@
         <router-link to="/news-events" class="nav-link">News & Events</router-link>
         <router-link to="/contact" class="nav-link">Contact Us</router-link>
       </nav>
-    </div>
-
-    <!-- 主内容区：图片左，CCYP + 介绍右 -->
-    <div class="main-content">
-      <div class="hero">
-        <img src="@/assets/banner.webp" alt="Art Campaign Banner" class="hero-image">
-      </div>
-
-      <div class="campaign-info">
-        <div class="partner-header">
-          <span class="our-partner">Our Partner:</span>
-          <img src="@/assets/ccyp.png" alt="Partners" class="partners-logo">
-        </div>
-        <div class="text">
-          <h2>About the Art Campaign</h2>
-          <p>
-            The Art Campaign: Poverty is an initiative empowering children and young people
-            to highlight differences between poverty and neglect through storytelling art.
-            It aims to reduce poverty stigma, raise awareness, and engage young people
-            in social justice discussions.
-
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -96,9 +66,11 @@
     padding: 8px 40px;
     width: 94%;
     margin-bottom: -10px;
+    flex-wrap: wrap;
   }
 
-  .left {
+  /* 左侧：图标 + 文字 */
+  .top-bar-left {
     display: flex;
     align-items: center;
   }
@@ -106,7 +78,7 @@
   .campaign-icon {
     width: 80px;
     height: 80px;
-    margin-right: 10px;
+    margin-right: 30px;
   }
 
   .campaign-title {
@@ -115,15 +87,34 @@
     color: #5C3B1E;
   }
 
-  .right {
+  /* 右侧：Follow Us + 图标 */
+  .top-bar-right {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .follow-us {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
   }
 
   .social-icon {
-    width: 20px;
-    height: 20px;
+    font-size: 24px;
     cursor: pointer;
+    color: #D27F36;
+  }
+
+  .social-icon:hover {
+    color: #8B4513;
   }
 
   /* Header */
@@ -140,7 +131,7 @@
 
   /* Navigation links */
   .nav-link {
-    margin: 0 15px;
+    margin: 0 45px;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
@@ -197,99 +188,43 @@
     color: #8B4513;
   }
 
-  .social-icons {
-    display: flex;
-    gap: 15px;
-  }
-
-  .social-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: #D27F36;
-  }
-
-  .social-icon:hover {
-    color: #8B4513;
-  }
-
-  /* 主内容区：左右两栏 */
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  /* 左侧：大图片 */
-  .hero {
-    flex: 1;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  /* 右侧：CCYP Logo + 介绍 */
-  .campaign-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    padding-left: 40px;
-  }
-
-  .our-partner {
-    color: #5C3B1E;
-    font-size: 24px;
-  }
-
-  /* 让 Our Partner + CCYP Logo 在一行 */
-  .partner-header {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* 调整文字和 Logo 之间的间距 */
-    margin-bottom: 5px; /* 确保与下面的内容有间距 */
-    margin-top: -180px; /* 主动上移整个部分 */
-  }
-
-  /* CCYP Logo 调整 */
-  .partners-logo {
-    width: 350px; /* 控制 Logo 大小 */
-    height: auto;
-  }
-
-  /* 介绍文本 */
-  .text h2 {
-    font-size: 28px;
-    color: #5C3B1E;
-  }
-
-  .text p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-  }
-
-  /* 响应式适配（小屏幕改成上下布局） */
+  /* 响应式适配（小屏幕） */
   @media (max-width: 768px) {
-    .main-content {
+    #top-bar {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .top-bar-left {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .top-bar-right {
+      align-items: center;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .social-icons {
+      justify-content: center;
+    }
+
+    #Header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .middle {
+      display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .hero,
-    .campaign-info {
-      width: 100%;
-      text-align: center;
-    }
-
-    .campaign-info {
-      padding-left: 0;
+    .nav-link {
+      display: block;
+      margin: 5px 0;
     }
   }
-
 </style>

@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 import mainPage from "@/components/mainPage";
 import artworkPage from "@/components/artworkPage";
 import aboutPage from "@/components/aboutPage";
@@ -14,7 +14,7 @@ const router = new Router({
             component: mainPage
         },
         {
-            path: '/artworkPage',
+            path: '/artwork',
             name: 'artworkPage',
             component: artworkPage
         },
@@ -26,4 +26,4 @@ const router = new Router({
     ]
 })
 
-export default router
+export default router;
