@@ -24,13 +24,19 @@
         <router-link to="/artwork" class="nav-link">Artworks</router-link>
 
         <!-- About Us Dropdown -->
-        <div class="dropdown" @mouseenter="showDropdown = 'about'" @mouseleave="showDropdown = ''">
-          <span class="nav-link dropdown-toggle" :class="{ 'active': showDropdown === 'about' }">About Us</span>
+        <div class="dropdown"
+             @mouseenter="!isMobile && (showDropdown = 'about')"
+             @mouseleave="!isMobile && (showDropdown = '')"
+             @click="toggleDropdown('about')">
+  <span class="nav-link dropdown-toggle" :class="{ 'active': showDropdown === 'about' }">
+    About Us
+  </span>
           <div class="dropdown-menu" v-show="showDropdown === 'about'">
             <router-link to="/about/ccyp" class="dropdown-item">CCYP</router-link>
-            <router-link to="/about/ourgroup" class="dropdown-item">Our Group</router-link>
+            <router-link to="/about/us" class="dropdown-item">Our Group</router-link>
           </div>
         </div>
+
 
         <router-link to="/get-involved" class="nav-link">Get Involved</router-link>
         <router-link to="/news-events" class="nav-link">News & Events</router-link>
@@ -46,11 +52,29 @@
     methods: {
       openLink(url) {
         window.open(url, "_blank");
-      }
+      },
+      checkMobile() {
+        this.isMobile = window.innerWidth <= 768;
+      },
+      toggleDropdown(menu) {
+        if (this.isMobile) {
+          this.showDropdown = this.showDropdown === menu ? "" : menu;
+        }
+      },
     },
+
+    mounted() {
+      this.checkMobile();
+      window.addEventListener("resize", this.checkMobile);
+    },
+    beforeDestroy() {
+      window.removeEventListener("resize", this.checkMobile);
+    },
+
     data() {
       return {
         showDropdown: "",
+        isMobile: false,
       };
     },
   };
@@ -159,7 +183,7 @@
     display: block;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 20px;
     background-color: #FDF3D6;
     min-width: 170px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -226,5 +250,6 @@
       display: block;
       margin: 5px 0;
     }
+
   }
 </style>

@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import mainPage from "@/components/mainPage";
 import artworkPage from "@/components/artworkPage";
 import aboutCCYP from "@/components/aboutCCYP";
+import aboutUs from "../components/aboutUs";
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ const router = new Router({
             path: '/about/ccyp',
             name: 'aboutCCYP',
             component: aboutCCYP
+        },
+        {
+            path: '/about/us',
+            name: 'aboutUs',
+            component: aboutUs
         },
     ]
 })

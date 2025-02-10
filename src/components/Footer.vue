@@ -1,10 +1,3 @@
-<!--
-This is a simple footer component for the DPIRD AgriVision frontend.
-The main purpose of this component is to display a footer message (e.g., "2024 DPIRD AgriVision") at the bottom of the page.
-The component uses Vue.js for managing the data and rendering the message dynamically.
-The CSS styles ensure the footer is centered, padded, and has specific dimensions and colors.
--->
-
 <template>
   <div id="Footer">
     <!-- Displaying the footer message -->
@@ -17,7 +10,7 @@ The CSS styles ensure the footer is centered, padded, and has specific dimension
     name: "Footer",
     data() {
       return {
-        msg: "2025",  // The footer message to display
+        msg: "2025 Team 'CLASS PLANK'",  // The footer message to display
       };
     },
   };

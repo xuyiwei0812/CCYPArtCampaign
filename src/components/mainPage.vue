@@ -199,7 +199,7 @@
 
     .campaign-info {
       padding-left: 0;
-      margin-top: 150px;
+      margin-top: 110px;
     }
 
     .focus-container {
