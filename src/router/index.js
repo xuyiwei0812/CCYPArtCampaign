@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import mainPage from "@/components/mainPage";
 import artworkPage from "@/components/artworkPage";
-import aboutPage from "@/components/aboutPage";
+import aboutCCYP from "@/components/aboutCCYP";
 
 Vue.use(Router)
 
@@ -19,9 +19,9 @@ const router = new Router({
             component: artworkPage
         },
         {
-            path: '/aboutPage',
-            name: 'aboutPage',
-            component: aboutPage
+            path: '/about/ccyp',
+            name: 'aboutCCYP',
+            component: aboutCCYP
         },
     ]
 })

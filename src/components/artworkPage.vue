@@ -8,7 +8,7 @@
                     <h3>{{ art.title }}</h3>
                     <p>By: {{ art.artist }}</p>
                     <p>Group: {{ art.group }}</p>
-                    <a :href="art.social_media_link" target="_blank" class="view-link">View Artwork Link</a>
+                    <a :href="art.social_media_link" target="_blank" class="view-link">Artwork Link</a>
                 </div>
             </div>
         </div>
