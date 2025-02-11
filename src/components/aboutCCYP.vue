@@ -14,10 +14,10 @@
         <section class="section section-blue">
             <h2>What Does CCYP Do?</h2>
             <ul>
-                <li>Advocates for policies that prioritize the well-being of children and young people.</li>
-                <li>Engages with young people to ensure their voices influence key decisions.</li>
-                <li>Conducts research and provides reports on youth-related issues.</li>
-                <li>Promotes awareness of children's rights and supports their development.</li>
+                <p>Advocates for policies that prioritize the well-being of children and young people.</p>
+                <p>Engages with young people to ensure their voices influence key decisions.</p>
+                <p>Conducts research and provides reports on youth-related issues.</p>
+                <p>Promotes awareness of children's rights and supports their development.</p>
             </ul>
         </section>
 
@@ -78,7 +78,7 @@
 
     .header h1 {
         font-size: 32px;
-        color: #004c97;
+        color: #5C3B1E;
     }
 
     .header p {
@@ -97,7 +97,7 @@
 
     .section h2 {
         font-size: 24px;
-        color: #004c97;
+        color: #5C3B1E;
         margin-bottom: 10px;
     }
 

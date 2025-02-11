@@ -7,22 +7,24 @@
 
     <div class="campaign-info">
       <div class="partner-header">
-        <span class="our-partner">Our Partner:</span>
-        <img src="@/assets/ccyp.png" alt="Partners" class="partners-logo">
+        <span class="our-partner">Our Partners</span>
+        <img src="@/assets/ccyp.png" alt="Partners1" class="partners-logo">
+        <img src="@/assets/mcs.png" alt="Partners2" class="partners-logo">
       </div>
       <div class="text">
         <h2>About the Art Campaign</h2>
         <p>
-          The Art Campaign: Poverty is an initiative empowering children and young people
+          Our art campaign is an initiative empowering children and young people
           to highlight differences between poverty and neglect through storytelling art.
           It aims to reduce poverty stigma, raise awareness, and engage young people
           in social justice discussions.
         </p>
         <p>
           Understanding poverty is essential in distinguishing it from neglect.
-          Through this campaign, we aim to educate the public on the true nature of poverty—its causes,
-          challenges, and impacts—so that children and young people facing financial hardship are not
-          unfairly judged or mischaracterized.
+          Through this campaign, we aim to educate the public on the true nature
+          of poverty——what it really looks like, the daily struggles it entails,
+          and the systemic barriers that keep families in financial hardship—so
+          that children and young people are not unfairly judged or mischaracterized.
         </p>
       </div>
     </div>
@@ -97,7 +99,7 @@
 
   .our-partner {
     color: #5C3B1E;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   /* 让 Our Partner + CCYP Logo 在一行 */
@@ -111,7 +113,7 @@
 
   /* CCYP Logo 调整 */
   .partners-logo {
-    width: 350px; /* 控制 Logo 大小 */
+    width: 260px; /* 控制 Logo 大小 */
     height: auto;
   }
 
@@ -131,7 +133,7 @@
   .focus-section {
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 10px;
   }
 
   .focus-title {
@@ -199,12 +201,28 @@
 
     .campaign-info {
       padding-left: 0;
-      margin-top: 110px;
+      margin-top: 30px;
+    }
+
+    .text p{
+      text-align: justify;
+    }
+
+    .partner-header {
+      flex-direction: column; /* 让 Partner 的 logo 变成纵向排列 */
+      align-items: center; /* 居中对齐 */
+      text-align: center;
+    }
+
+    .partners-logo {
+      width: 300px;
+      margin-bottom: 10px; /* 增加下边距，防止 Logo 紧挨 */
     }
 
     .focus-container {
       flex-direction: column;
       align-items: center;
+      max-width: 100%;
     }
 
     .focus-box {

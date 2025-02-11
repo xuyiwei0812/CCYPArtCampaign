@@ -5,6 +5,9 @@
       <div class="top-bar-left">
         <img src="@/assets/icon6.png" alt="Campaign Icon" class="campaign-icon" />
         <span class="campaign-title">Art Campaign: Poverty</span>
+        <div class="hamburger-menu" @click="toggleMenu">
+          <i :class="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'" class="menu-icon"></i>
+        </div>
       </div>
       <div class="top-bar-right">
         <span class="follow-us">Follow Us:</span>
@@ -14,39 +17,26 @@
           <i class="fab fa-facebook social-icon" @click="openLink('https://facebook.com')"></i>
         </div>
       </div>
+
     </div>
 
-    <!-- 现有导航栏 -->
-    <div id="Header">
-      <nav class="middle">
-        <router-link to="/" class="nav-link">Home</router-link>
-
-        <router-link to="/artwork" class="nav-link">Artworks</router-link>
-
-        <!-- About Us Dropdown -->
-        <div class="dropdown"
-             @mouseenter="!isMobile && (showDropdown = 'about')"
-             @mouseleave="!isMobile && (showDropdown = '')"
-             @click="toggleDropdown('about')">
-  <span class="nav-link dropdown-toggle" :class="{ 'active': showDropdown === 'about' }">
-    About Us
-  </span>
-          <div class="dropdown-menu" v-show="showDropdown === 'about'">
-            <router-link to="/about/ccyp" class="dropdown-item">CCYP</router-link>
-            <router-link to="/about/us" class="dropdown-item">Our Group</router-link>
-          </div>
-        </div>
-
-
-        <router-link to="/get-involved" class="nav-link">Get Involved</router-link>
-        <router-link to="/news-events" class="nav-link">News & Events</router-link>
-        <router-link to="/contact" class="nav-link">Contact Us</router-link>
+    <!-- 导航栏 -->
+    <div id="Header" :class="{ 'menu-open': isMenuOpen }">
+    <nav class="middle">
+        <router-link to="/" class="nav-link" @click.native="emitCloseMenu">Home</router-link>
+        <router-link to="/artwork" class="nav-link" @click.native="emitCloseMenu">Artworks</router-link>
+        <router-link to="/aboutCcyp" class="nav-link" @click.native="emitCloseMenu">About CCYP</router-link>
+        <router-link to="/get-involved" class="nav-link" @click.native="emitCloseMenu">Get Involved</router-link>
+        <router-link to="/news-events" class="nav-link" @click.native="emitCloseMenu">News & Events</router-link>
+        <router-link to="/aboutUs" class="nav-link" @click.native="emitCloseMenu">About Us</router-link>
       </nav>
     </div>
   </div>
 </template>
 
 <script>
+  import { EventBus } from "@/eventBus";
+
   export default {
     name: "Header",
     methods: {
@@ -56,25 +46,36 @@
       checkMobile() {
         this.isMobile = window.innerWidth <= 768;
       },
-      toggleDropdown(menu) {
-        if (this.isMobile) {
-          this.showDropdown = this.showDropdown === menu ? "" : menu;
-        }
+      toggleMenu() {
+        this.isMenuOpen = !this.isMenuOpen;
+        EventBus.$emit("toggleMenu", this.isMenuOpen);
+      },
+      closeMenu() {
+        this.isMenuOpen = false;
+      },
+      emitCloseMenu() {
+        EventBus.$emit("closeMenu"); // 触发关闭菜单事件
+      },
+      setMenuState(state) {
+        this.isMenuOpen = state;
       },
     },
-
     mounted() {
       this.checkMobile();
       window.addEventListener("resize", this.checkMobile);
+      EventBus.$on("toggleMenu", this.setMenuState);
+      EventBus.$on("closeMenu", this.closeMenu);
     },
     beforeDestroy() {
       window.removeEventListener("resize", this.checkMobile);
+      EventBus.$on("toggleMenu", this.setMenuState);
+      EventBus.$on("closeMenu", this.closeMenu);
     },
-
     data() {
       return {
         showDropdown: "",
         isMobile: false,
+        isMenuOpen: false,
       };
     },
   };
@@ -141,6 +142,13 @@
     color: #8B4513;
   }
 
+  .hamburger-menu {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #5C3B1E;
+  }
+
   /* Header */
   #Header {
     display: flex;
@@ -172,52 +180,14 @@
     color: #8B4513;
   }
 
-  /* Dropdown */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Dropdown menu */
-  .dropdown-menu {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 20px;
-    background-color: #FDF3D6;
-    min-width: 170px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 0px 0;
-    z-index: 1000;
-  }
-
-  /* 下拉菜单项 */
-  .dropdown-item {
-    display: block;
-    padding: 12px 20px;
-    color: #5C3B1E;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 2px solid #E6CFA3;
-    text-align: left;
-  }
-
-  .dropdown-item:last-child {
-    border-bottom: none;
-  }
-
-  .dropdown-item:hover {
-    background-color: #E6CFA3;
-    color: #8B4513;
-  }
-
   /* 响应式适配（小屏幕） */
   @media (max-width: 768px) {
+
     #top-bar {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      padding: 1px 1px;
     }
 
     .top-bar-left {
@@ -226,30 +196,64 @@
     }
 
     .top-bar-right {
-      align-items: center;
-      width: 100%;
-      margin-top: 5px;
+      display: none;
     }
 
-    .social-icons {
-      justify-content: center;
+    .hamburger-menu {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 25px;
     }
 
+    .campaign-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 5px;
+    }
+
+    .campaign-title {
+      font-size: 22px;
+      margin-right: 20%;
+    }
+
+    /* 让菜单变成竖向伸缩 */
     #Header {
+      width: 100%;
       flex-direction: column;
       text-align: center;
+      padding: 0;
+      background-color: whitesmoke;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      transition: max-height 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    #Header.menu-open {
+      max-height: 300px; /* 这个值可以根据菜单项多少调整 */
     }
 
     .middle {
-      display: flex;
       flex-direction: column;
-      align-items: center;
+      text-align: center;
+      width: 100%;
     }
 
     .nav-link {
       display: block;
-      margin: 5px 0;
+      font-size: 14px;
+      padding: 6px;
     }
 
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: lightgray;
+      color: #8B4513;
+    }
   }
+
 </style>

@@ -20,12 +20,12 @@ const router = new Router({
             component: artworkPage
         },
         {
-            path: '/about/ccyp',
+            path: '/aboutCcyp',
             name: 'aboutCCYP',
             component: aboutCCYP
         },
         {
-            path: '/about/us',
+            path: '/aboutUs',
             name: 'aboutUs',
             component: aboutUs
         },

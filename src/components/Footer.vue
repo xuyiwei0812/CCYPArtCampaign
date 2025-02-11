@@ -2,6 +2,14 @@
   <div id="Footer">
     <!-- Displaying the footer message -->
     <p>{{ msg }}</p>
+    <div class="footer-follow-us">
+      <span class="follow-us">Follow Us:</span>
+      <div class="social-icons">
+        <i class="fab fa-instagram social-icon" @click="openLink('https://instagram.com')"></i>
+        <i class="fab fa-twitter social-icon" @click="openLink('https://twitter.com')"></i>
+        <i class="fab fa-facebook social-icon" @click="openLink('https://facebook.com')"></i>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,9 +30,9 @@
     padding: 6px;
     border-radius: 5px;
     width: 80%;
-    height: 80px;
+    height: 50px;
     margin: 20px auto;
-    margin-top: 140px;
+    margin-top: 40px;
   }
 
   p {
@@ -33,5 +41,45 @@
     text-align: center;
     margin: 30px auto;
     font-size: 1.1em;
+  }
+
+  .footer-follow-us {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+  }
+
+  .follow-us {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .social-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #D27F36;
+  }
+
+  .social-icon:hover {
+    color: #8B4513;
+  }
+
+  @media (max-width: 768px) {
+    .footer-follow-us {
+      display: flex; /* 在手机端显示 */
+      flex-direction: column;
+      text-align: center;
+      align-items: center; /* 确保内容居中 */
+    }
   }
 </style>

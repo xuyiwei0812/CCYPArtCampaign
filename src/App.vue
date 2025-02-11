@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <app-header v-if="header_show" :username="username"></app-header>
+    <app-header v-if="header_show"></app-header>
     <router-view v-on:header="header" v-on:footer="footer"></router-view>
     <app-footer v-if="footer_show"></app-footer>
   </div>
 </template>
 
 <script>
+  import { EventBus } from "@/eventBus";
   import Header from "./components/Header";
   import Footer from "./components/Footer";
 
@@ -16,7 +17,7 @@
       return {
         header_show: true,
         footer_show: true,
-        username: '',
+        isMenuOpen: false,
       }
     },
     components: {
@@ -30,7 +31,19 @@
       footer: function (bool) {
         this.footer_show = bool;
       }
-    }
+    },
+    mounted() {
+      EventBus.$on("menuOpened", () => {
+        this.isMenuOpen = true;
+      });
+      EventBus.$on("closeMenu", () => {
+        this.isMenuOpen = false;
+      });
+    },
+    beforeDestroy() {
+      EventBus.$off("menuOpened");
+      EventBus.$off("closeMenu");
+    },
   }
 </script>
 
