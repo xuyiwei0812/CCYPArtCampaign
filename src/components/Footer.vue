@@ -76,10 +76,10 @@
 
   @media (max-width: 768px) {
     .footer-follow-us {
-      display: flex; /* 在手机端显示 */
+      display: flex;
       flex-direction: column;
       text-align: center;
-      align-items: center; /* 确保内容居中 */
+      align-items: center;
     }
   }
 </style>

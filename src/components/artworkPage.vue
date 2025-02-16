@@ -2,7 +2,7 @@
     <div class="artwork-container">
         <div class="artwork-grid">
             <div v-for="art in artworks" :key="art.title" class="art-card">
-                <!-- 确保 `:src="getImageUrl(art.image)"` 正确解析路径 -->
+                <!-- make sure `:src="getImageUrl(art.image)"` get the right url -->
                 <img :src="getImageUrl(art.image)" :alt="art.title" class="art-image" v-if="art.image"/>
                 <div class="art-info">
                     <h3>{{ art.title }}</h3>
@@ -105,15 +105,13 @@
         text-decoration: underline;
     }
 
-    /* 响应式布局：小屏幕两列 */
     @media (max-width: 1024px) {
         .artwork-grid {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    /* 手机端：单列布局 */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
         .artwork-grid {
             grid-template-columns: repeat(1, 1fr);
         }

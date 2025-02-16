@@ -33,7 +33,6 @@
 </script>
 
 <style scoped>
-    /* 页面整体样式 */
     .about-container {
         max-width: 1300px;
         margin: 0 auto;
@@ -42,7 +41,6 @@
         font-family: Arial, sans-serif;
     }
 
-    /* 标题 */
     .title {
         font-size: 32px;
         color: #5C3B1E;
@@ -50,14 +48,12 @@
         margin-bottom: 10px;
     }
 
-    /* 副标题 */
     .subtitle {
         font-size: 18px;
         color: #555;
         margin-bottom: 30px;
     }
 
-    /* 团队成员卡片布局 */
     .team-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -70,7 +66,6 @@
         }
     }
 
-    /* 每个成员的卡片 */
     .team-card {
         background: #f9f3e6;
         padding: 20px;
@@ -84,7 +79,6 @@
         transform: translateY(-5px);
     }
 
-    /* 姓名样式 */
     .name {
         font-size: 22px;
         font-weight: bold;
@@ -92,7 +86,6 @@
         margin-bottom: 8px;
     }
 
-    /* 研究领域样式 */
     .field {
         font-size: 16px;
         color: #333;

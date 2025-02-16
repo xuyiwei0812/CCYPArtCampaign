@@ -30,7 +30,6 @@
     </div>
   </div>
 
-    <!-- 重点展示区域 -->
     <div class="focus-section">
       <h2 class="focus-title">Key Focus Areas</h2>
       <div class="focus-container">
@@ -67,7 +66,6 @@
 </script>
 
 <style scoped>
-  /* 主内容区：左右两栏 */
   .main-content {
     display: flex;
     justify-content: space-between;
@@ -77,7 +75,7 @@
     margin: 0 auto;
   }
 
-  /* 左侧：大图片 */
+  /* left: big pic */
   .hero {
     flex: 1;
   }
@@ -88,7 +86,7 @@
     border-radius: 8px;
   }
 
-  /* 右侧：CCYP Logo + 介绍 */
+  /* right：CCYP Logo + intro */
   .campaign-info {
     flex: 1;
     display: flex;
@@ -102,22 +100,19 @@
     font-size: 18px;
   }
 
-  /* 让 Our Partner + CCYP Logo 在一行 */
   .partner-header {
     display: flex;
     align-items: center;
-    gap: 10px; /* 调整文字和 Logo 之间的间距 */
-    margin-bottom: 5px; /* 确保与下面的内容有间距 */
-    margin-top: -10px; /* 主动上移整个部分 */
+    gap: 10px;
+    margin-bottom: 5px;
+    margin-top: -10px;
   }
 
-  /* CCYP Logo 调整 */
   .partners-logo {
-    width: 260px; /* 控制 Logo 大小 */
+    width: 260px;
     height: auto;
   }
 
-  /* 介绍文本 */
   .text h2 {
     font-size: 28px;
     color: #5C3B1E;
@@ -129,7 +124,6 @@
     color: #333;
   }
 
-  /* 重点展示区域 */
   .focus-section {
     width: 100%;
     text-align: center;
@@ -142,7 +136,6 @@
     margin-bottom: 20px;
   }
 
-  /* 横向色块容器 */
   .focus-container {
     display: flex;
     justify-content: center;
@@ -150,7 +143,6 @@
     flex-wrap: wrap;
   }
 
-  /* 重点色块 */
   .focus-box {
     flex: 1;
     min-width: 220px;
@@ -169,24 +161,22 @@
     margin-bottom: 8px;
   }
 
-  /* 不同颜色的重点区域 */
   .focus-green {
-    background-color: #d4edda; /* 绿色 */
+    background-color: #d4edda;
   }
 
   .focus-yellow {
-    background-color: #fff3cd; /* 黄色 */
+    background-color: #fff3cd;
   }
 
   .focus-blue {
-    background-color: #e2d5f8; /* 蓝色 */
+    background-color: #e2d5f8;
   }
 
   .focus-red {
-    background-color: #f8d7da; /* 红色 */
+    background-color: #f8d7da;
   }
 
-  /* 响应式适配（小屏幕改成上下布局） */
   @media (max-width: 768px) {
     .main-content {
       flex-direction: column;
@@ -209,14 +199,14 @@
     }
 
     .partner-header {
-      flex-direction: column; /* 让 Partner 的 logo 变成纵向排列 */
-      align-items: center; /* 居中对齐 */
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
 
     .partners-logo {
       width: 300px;
-      margin-bottom: 10px; /* 增加下边距，防止 Logo 紧挨 */
+      margin-bottom: 10px;
     }
 
     .focus-container {
