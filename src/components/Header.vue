@@ -251,6 +251,24 @@
       background-color: lightgray;
       color: #8B4513;
     }
+
+  }
+
+  @media (max-width: 1370px) and (min-width: 768px) {
+      #Header {
+          justify-content: center;
+      }
+
+      .nav-link {
+          margin: 0 25px;
+          font-size: 16px;
+          padding: 8px 10px;
+      }
+
+      .middle {
+          display: flex;
+          flex-wrap: nowrap;
+      }
   }
 
 </style>
