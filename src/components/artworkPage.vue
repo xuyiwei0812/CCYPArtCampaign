@@ -58,12 +58,6 @@
         text-align: center;
     }
 
-    .page-title {
-        font-size: 32px;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
     .artwork-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

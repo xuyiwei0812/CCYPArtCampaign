@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- 顶部栏 -->
+    <!-- Top Bar -->
     <div id="top-bar">
       <div class="top-bar-left">
         <img src="@/assets/icon6.png" alt="Campaign Icon" class="campaign-icon" />
@@ -20,14 +20,14 @@
 
     </div>
 
-    <!-- 导航栏 -->
+    <!-- Header -->
     <div id="Header" :class="{ 'menu-open': isMenuOpen }">
     <nav class="middle">
         <router-link to="/" class="nav-link" @click.native="emitCloseMenu">Home</router-link>
         <router-link to="/artwork" class="nav-link" @click.native="emitCloseMenu">Artworks</router-link>
         <router-link to="/aboutCcyp" class="nav-link" @click.native="emitCloseMenu">About CCYP</router-link>
-        <router-link to="/get-involved" class="nav-link" @click.native="emitCloseMenu">Get Involved</router-link>
-        <router-link to="/news-events" class="nav-link" @click.native="emitCloseMenu">News & Events</router-link>
+        <router-link to="/getInvolved" class="nav-link" @click.native="emitCloseMenu">Get Involved</router-link>
+        <router-link to="/newsPage" class="nav-link" @click.native="emitCloseMenu">News & Events</router-link>
         <router-link to="/aboutUs" class="nav-link" @click.native="emitCloseMenu">About Us</router-link>
       </nav>
     </div>
@@ -54,7 +54,7 @@
         this.isMenuOpen = false;
       },
       emitCloseMenu() {
-        EventBus.$emit("closeMenu"); // 触发关闭菜单事件
+        EventBus.$emit("closeMenu");
       },
       setMenuState(state) {
         this.isMenuOpen = state;
@@ -82,7 +82,6 @@
 </script>
 
 <style scoped>
-  /* 顶部栏 */
   #top-bar {
     display: flex;
     justify-content: space-between;
@@ -94,7 +93,6 @@
     flex-wrap: wrap;
   }
 
-  /* 左侧：图标 + 文字 */
   .top-bar-left {
     display: flex;
     align-items: center;
@@ -112,7 +110,6 @@
     color: #5C3B1E;
   }
 
-  /* 右侧：Follow Us + 图标 */
   .top-bar-right {
     display: flex;
     flex-direction: column;
@@ -234,7 +231,7 @@
     }
 
     #Header.menu-open {
-      max-height: 300px; /* 这个值可以根据菜单项多少调整 */
+      max-height: 300px;
     }
 
     .middle {
