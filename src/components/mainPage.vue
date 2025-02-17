@@ -12,7 +12,7 @@
         <img src="@/assets/mcs.png" alt="Partners2" class="partners-logo">
       </div>
       <div class="text">
-        <h2>About the Art Campaign</h2>
+        <h2>Through Their Eyes: An art and poverty project</h2>
         <p>
           Our art campaign is an initiative empowering children and young people
           to highlight differences between poverty and neglect through storytelling art.

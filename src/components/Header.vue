@@ -4,7 +4,7 @@
     <div id="top-bar">
       <div class="top-bar-left">
         <img src="@/assets/icon6.png" alt="Campaign Icon" class="campaign-icon" />
-        <span class="campaign-title">Art Campaign: Poverty</span>
+        <span class="campaign-title">Through Their Eyes</span>
         <div class="hamburger-menu" @click="toggleMenu">
           <i :class="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'" class="menu-icon"></i>
         </div>
